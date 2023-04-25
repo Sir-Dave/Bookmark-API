@@ -57,7 +57,7 @@ export class AuthService {
         return this.signToken(user.id, user.email)
     }
 
-    async signToken(userId: number, email: string): Promise<{accessToken: string}>{
+    async signToken(userId: number, email: string): Promise<AccessToken>{
         const payload = {
             sub: userId,
             email 
@@ -68,6 +68,10 @@ export class AuthService {
             secret: secret
         })
 
-        return { "accessToken" : token }
+        return  { "accessToken" : token } 
     }
+}
+
+export interface AccessToken{
+    accessToken: string
 }
