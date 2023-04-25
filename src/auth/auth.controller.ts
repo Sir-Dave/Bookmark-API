@@ -8,13 +8,12 @@ export class AuthController{
     constructor(private authService: AuthService){}
 
     @Post("signup")
-    signup(){
-        return this.authService.signUp()
+    signup(@Body() dto: AuthDto){
+        return this.authService.signUp(dto)
     }
 
     @Post("signin")
     login(@Body() dto: AuthDto){
-        console.log(dto)
         return this.authService.logIn()
     }
 
