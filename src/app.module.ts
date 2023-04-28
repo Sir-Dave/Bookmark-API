@@ -3,13 +3,17 @@ import { AuthModule } from './auth/auth.module';
 import { PrismaDbModule } from './prisma-db/prisma-db.module';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './user/user.module';
+import { BookmarkModule } from './bookmark/bookmark.module';
 
 @Module({
   imports: [
-    AuthModule, 
-    PrismaDbModule, 
     ConfigModule.forRoot({
       isGlobal: true
-    }), UserModule],
+    }),
+
+    AuthModule, 
+    PrismaDbModule, 
+    UserModule, 
+    BookmarkModule],
 })
 export class AppModule {}
